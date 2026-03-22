@@ -12,13 +12,14 @@
     "state": "Texas",
     "state_abbr": "TX",
     "county": "Collin County",
-    "phone": "(417) 607-6608",
+    "phone": "(469) 529-6768",
     "phone_formatted": "(417) 607-6608",
     "phone_digits": "14176076608",
     "email": "contact@mckinneytreepros.com",
     "years_in_business": "8",
     "tagline": "McKinney's Trusted Tree Experts \u2014 Fast, Local & Fully Insured",
-    "web3forms_key": "0219881f-13e5-4175-b720-517b8d10c028"
+    "web3forms_key": "0219881f-13e5-4175-b720-517b8d10c028",
+    "twilio_number": "+14695296768"
   },
   "seo": {
     "primary_keyword": "tree service mckinney tx",
