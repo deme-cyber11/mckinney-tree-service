@@ -1,7 +1,7 @@
 /* ===== RESET & BASE ===== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:'DM Sans',sans-serif;color:#222;line-height:1.6;background:#fff;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;font-size:16px;color:#222;line-height:1.6;background:#fff;overflow-x:hidden}
 h1,h2,h3,h4,h5,h6{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.2;color:#1a472a}
 a{color:#1a472a;text-decoration:none;transition:color .2s}
 a:hover{color:#f5a623}
