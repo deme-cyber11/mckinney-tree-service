@@ -128,7 +128,7 @@ button,input,select,textarea{font-family:inherit;font-size:inherit}
 .faq-answer-inner{padding:0 24px 18px;color:var(--gray-700);line-height:1.7;font-size:.95rem}
 
 /* ===== CTA BAND ===== */
-.cta-band{background:linear-gradient(135deg,var(--accent) 0%,#e6951a 100%);color:var(--white);text-align:center;padding:60px 20px}
+.cta-band{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:var(--white);text-align:center;padding:60px 20px}
 .cta-band h2{color:var(--white);font-size:2rem;margin-bottom:12px}
 .cta-band p{color:rgba(255,255,255,.9);margin-bottom:24px;font-size:1.05rem}
 
