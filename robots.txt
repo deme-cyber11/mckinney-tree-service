@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mckinneytreepros.com/sitemap.xml
+Sitemap: https://ntxtreeexperts.com/sitemap.xml
