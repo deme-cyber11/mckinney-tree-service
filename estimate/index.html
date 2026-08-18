@@ -72,25 +72,24 @@ textarea{resize:vertical;min-height:88px;line-height:1.6}
 .footer{text-align:center;padding:32px 16px;font-size:.8125rem;color:#94a3b8}
 .footer a{color:#e94560;font-weight:500}
 </style>
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body>
 
 <nav class="nav">
-  <div class="nav__logo"><span>NTX</span> Tree Experts</div>
-  <a href="tel:4695296768" class="nav__cta">(469) 529-6768</a>
+  <div class="nav__logo">Tree <span>Pro</span></div>
+  <a href="tel:1469529676" class="nav__cta">(146) 952-9676</a>
 </nav>
 
 <main class="page">
 
   <div class="page-header">
     <span class="page-header__eyebrow">Free Estimate</span>
-    <h1>Request a Free Estimate from NTX Tree Experts</h1>
+    <h1>Tree Service Request</h1>
     <p>Tell us about your trees so we can prepare an accurate quote.</p>
   </div>
 
   <form id="form" action="https://lead-manager-api.irontigerdigital.workers.dev/ingest" method="POST">
-    <input type="hidden" name="site_domain" value="ntxtreeexperts.com">
+    <input type="hidden" name="site" value="ntxtreeexperts.com">
     <input type="hidden" name="_subject" value="New Estimate Request — Tree Service in McKinney, TX">
     <input type="hidden" name="_redirect" value="https://ntxtreeexperts.com/estimate/#success">
     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -110,16 +109,30 @@ textarea{resize:vertical;min-height:88px;line-height:1.6}
         </div>
         <div class="field">
           <label for="phone">Phone Number <span class="req">*</span></label>
-          <input type="tel" id="phone" name="phone" required placeholder="(469) 529-6768">
+          <input type="tel" id="phone" name="phone" required placeholder="(555) 000-1234">
         </div>
       </div>
       <div class="field">
         <label for="email">Email Address <span class="req">*</span></label>
         <input type="email" id="email" name="email" required placeholder="you@example.com">
       </div>
+      <div class="field">
+        <label for="address">Street Address <span class="req">*</span></label>
+        <input type="text" id="address" name="address" required placeholder="123 Main St" autocomplete="address-line1">
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="city">City <span class="req">*</span></label>
+          <input type="text" id="city" name="city" required placeholder="City" autocomplete="address-level2">
+        </div>
+        <div class="field">
+          <label for="state">State <span class="req">*</span></label>
+          <input type="text" id="state" name="state" required placeholder="TX" maxlength="2" autocomplete="address-level1" oninput="this.value=this.value.toUpperCase()">
+        </div>
+      </div>
       <div class="field" style="margin-bottom:0">
-        <label for="address">Property Address <span class="req">*</span></label>
-        <input type="text" id="address" name="address" required placeholder="123 Main St, City, State ZIP">
+        <label for="zip">ZIP Code <span class="req">*</span></label>
+        <input type="text" id="zip" name="zip" required placeholder="00000" pattern="[0-9]{5}(-[0-9]{4})?" inputmode="numeric" autocomplete="postal-code">
       </div>
     </div>
 
@@ -273,8 +286,8 @@ textarea{resize:vertical;min-height:88px;line-height:1.6}
         Additional Details
       </div>
       <div class="field">
-        <label for="notes">Project Description <span class="req">*</span></label>
-        <textarea id="notes" name="notes" rows="4" required placeholder="Describe the project in more detail, any concerns, previous quotes received, access issues, etc."></textarea>
+        <label for="notes">Anything else we should know?</label>
+        <textarea id="notes" name="notes" rows="4" placeholder="Describe the project in more detail, any concerns, previous quotes received, access issues, etc."></textarea>
       </div>
       <div class="field" style="margin-bottom:0">
         <label>Photos <span class="hint">(optional — helps us give a more accurate estimate)</span></label>
@@ -300,7 +313,7 @@ textarea{resize:vertical;min-height:88px;line-height:1.6}
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         Response within 24 hrs
       </div>
-      <div class='trust-item'><svg viewBox='0 0 24 24'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.4 5.4l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z'/></svg>(469) 529-6768</div>
+      <div class='trust-item'><svg viewBox='0 0 24 24'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.4 5.4l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z'/></svg>(146) 952-9676</div>
     </div>
   </form>
 
@@ -310,50 +323,38 @@ textarea{resize:vertical;min-height:88px;line-height:1.6}
     </div>
     <h2>We Got It — Thanks!</h2>
     <p>We'll review your project details and reach out within 24 hours.</p>
-    <p style='margin-top:8px'>Need us sooner? Call <a href='tel:(469) 529-6768'>(469) 529-6768</a></p>
+    <p style='margin-top:8px'>Need us sooner? Call <a href='tel:1469529676'>(146) 952-9676</a></p>
   </div>
 
 </main>
 
 <div class="footer">
-  <p>&copy; 2026 Tree Service in McKinney, TX &nbsp;|&nbsp; Licensed &amp; Insured&nbsp;|&nbsp; <a href='tel:(469) 529-6768'>(469) 529-6768</a></p>
+  <p>&copy; 2026 Tree Service in McKinney, TX &nbsp;|&nbsp; Licensed &amp; Insured&nbsp;|&nbsp; <a href='tel:1469529676'>(146) 952-9676</a></p>
 </div>
 
 <script>
 if(window.location.hash==='#success'){document.getElementById('form').style.display='none';document.getElementById('success').style.display='block';}
 document.getElementById('photos').addEventListener('change',function(){document.getElementById('upload-label').textContent=this.files.length?this.files.length+' photo'+(this.files.length>1?'s':'')+' selected':'Tap to upload photos';});
+document.getElementById('form').addEventListener('submit',function(e){
+  var checked=document.querySelectorAll('input[name="services[]"]:checked');
+  if(checked.length===0){
+    e.preventDefault();
+    var grid=document.querySelector('.check-grid');
+    grid.style.outline='2px solid #ef4444';
+    grid.style.borderRadius='10px';
+    grid.style.padding='4px';
+    grid.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  var city=document.getElementById('city').value.trim();
+  var state=document.getElementById('state').value.trim();
+  var zip=document.getElementById('zip').value.trim();
+  var addr=document.getElementById('address');
+  addr.value=addr.value.trim()+', '+city+', '+state+' '+zip;
+});
+document.querySelectorAll('input[name="services[]"]').forEach(function(cb){
+  cb.addEventListener('change',function(){document.querySelector('.check-grid').style.outline='';});
+});
 </script>
 </body>
 </html>
-<h2>Professional Estimate in McKinney, TX</h2>
-<p>Understanding the precise needs of your trees and property is the crucial first step before any major arborist work begins. In McKinney, TX, where extreme weather conditions and varied tree species demand expert attention, a professional estimate from McKinney Arborists isn't just a formality—it's an essential service. Our detailed estimates provide homeowners and commercial property managers with a clear, transparent, and accurate assessment of the work required, whether it's routine tree pruning, emergency tree removal, or comprehensive tree health management. This service eliminates guesswork, offers peace of mind, and empowers you to make informed decisions about your property's trees, ensuring safety, preserving value, and maintaining the aesthetic appeal of your landscape amidst McKinney’s unique environmental challenges.</p>
-
-<h2>What Is Estimate?</h2>
-<p>An estimate, in the context of McKinney Arborists, is a thorough, on-site assessment and written proposal for tree service or tree removal. Our certified arborists visit your property to evaluate the condition of specific trees, identify potential hazards, and understand your particular concerns and objectives. We utilize our extensive knowledge of arboriculture, local tree species, and safety protocols to meticulously inspect each tree. This includes assessing tree health, structural integrity, proximity to structures or power lines, and any signs of disease or pest infestation. The resulting estimate is a comprehensive document outlining the recommended services, the methodology we propose to use, the expected timeline, and a transparent breakdown of all associated costs, ensuring you have a complete picture before any work commences.</p>
-
-<h2>Benefits of Professional Estimate</h2>
-<ul>
-<li><strong>Clarity and Transparency:</strong> A professional estimate provides a clear, itemized breakdown of all proposed services, costs, and timelines. This transparency ensures you understand exactly what work will be done, why it's necessary, and how much it will cost, eliminating hidden fees and surprises.</li>
-<li><strong>Informed Decision-Making:</strong> With a detailed assessment from certified arborists, you gain expert insights into the health and safety of your trees. This allows you to make well-informed decisions regarding essential tree care, prioritizing services that address immediate risks while also planning for long-term landscape health and budget.</li>
-<li><strong>Risk Mitigation and Safety:</strong> Our estimates identify potential hazards like weak limbs, diseased trees, or unstable structures that could pose a risk to your property or family, especially given McKinney's storm potential. Addressing these issues proactively through a planned service minimizes accident risks and ensures a safer environment.</li>
-<li><strong>Budget Planning and Property Value Preservation:</strong> Receiving a precise estimate enables you to budget effectively for tree services, preventing unexpected expenses. Additionally, proper tree care and timely removal of hazardous trees, as identified in the estimate, contribute significantly to maintaining and even enhancing your property's overall curb appeal and market value.</li>
-</ul>
-
-<h2>Our Estimate Process</h2>
-<p>At McKinney Arborists, our estimate process is designed to be straightforward, transparent, and tailored to your specific needs, ensuring you receive a comprehensive understanding of your tree care requirements. We prioritize clear communication and expert assessment to provide you with the most accurate and actionable information possible. From your initial contact to the final proposal review, every step is handled with professionalism and a commitment to your satisfaction, reflecting our dedication to excellence in McKinney, TX. Our goal is to empower you with the knowledge to make the best decisions for your trees and property.</p>
-<ol>
-<li><strong>Initial Contact & Scheduling:</strong> You reach out to us by phone or our website, and our friendly team will gather initial information about your tree service needs. We then schedule a convenient time for one of our expert arborists to visit your McKinney property for an on-site consultation.</li>
-<li><strong>On-Site Consultation & Assessment:</strong> A certified arborist will arrive at your property at the scheduled time to conduct a thorough inspection of your trees and discuss your concerns in detail. This involves assessing tree health, identifying potential hazards, and understanding the scope of work required, considering local McKinney conditions.</li>
-<li><strong>Detailed Proposal Creation:</strong> Based on the on-site assessment, we will prepare a comprehensive, written estimate outlining the recommended services, the specific methods we will employ, and a transparent breakdown of all costs. This proposal ensures you have a clear understanding of the proposed work.</li>
-<li><strong>Review & Discussion:</strong> We present the detailed estimate to you, explaining each aspect of the proposed service and answering any questions you may have. We ensure you are completely comfortable and informed before proceeding, allowing for adjustments to meet your specific preferences or budget.</li>
-</ol>
-
-<h2>Why McKinney, TX Properties Need Estimate</h2>
-<p>McKinney, TX, with its rapidly growing communities and cherished mature trees, presents unique challenges that underscore the importance of professional tree service estimates. The region experiences variable weather, from hot, dry summers to severe thunderstorms and occasional ice storms, which can stress trees, cause limb breakage, and necessitate emergency removals. Furthermore, McKinney's rich clay soils, while supportive, can sometimes lead to nutrient deficiencies or root issues if not properly managed, affecting tree stability and health. Many properties feature mature oak, pecan, and cedar elm trees, which significantly contribute to property value but require diligent care to remain safe and vibrant. A professional estimate helps homeowners in McKinney address these specific local conditions by identifying vulnerable trees, planning proactive maintenance, and ensuring compliance with any local city ordinances regarding tree preservation or removal, thereby protecting their investment and enhancing neighborhood aesthetics.</p>
-
-<h2>Common Questions About Estimate</h2>
-<div class="faq-item"><h3>How much does Estimate cost in McKinney, TX?</h3><p>Our initial estimate consultation for tree service and removal in McKinney, TX, is typically provided free of charge. The actual cost of tree service outlined in the estimate can vary significantly, ranging from a few hundred dollars for minor pruning or small tree removal to several thousand for large, complex removals or extensive tree health treatments. Factors like tree size, location, hazard level, and necessary equipment heavily influence the final price, ensuring you receive a fair and accurate quote.</p></div>
-<div class="faq-item"><h3>How long does Estimate take?</h3><p>The on-site portion of our estimate typically takes between 20 to 60 minutes, depending on the number of trees and the complexity of the issues being assessed. Following the visit, you can generally expect to receive your detailed written proposal within 24 to 48 hours. For very urgent situations in McKinney, we strive to provide a faster turnaround for both the visit and the estimate delivery.</p></div>
-<div class="faq-item"><h3>How do I know if I need Estimate?</h3><p>You should consider scheduling an estimate if you notice dead or decaying branches, trees leaning significantly, visible cracks in the trunk or major limbs, or if trees are growing too close to power lines or structures. Additionally, if your trees haven't been professionally pruned in several years, show signs of disease or pest infestation, or if you're planning a construction project, an expert assessment is highly recommended to ensure safety and proper tree health.</p></div>
-
-<p class="cta-text">Ready to schedule Estimate in McKinney, TX? Contact McKinney Arborists today for a free estimate. We serve the entire McKinney, TX area with fast scheduling and guaranteed results.</p>
