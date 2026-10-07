@@ -54,7 +54,7 @@ document.querySelectorAll('.faq-question').forEach(btn=>{
       }
     });
     if(isOpen){item.classList.remove('open');answer.style.maxHeight='0';}
-    else{item.classList.add('open');answer.style.maxHeight=inner.scrollHeight+'px';}
+    else{item.classList.add('open');answer.style.maxHeight=(inner||answer).scrollHeight+'px';}
   });
 });
 
