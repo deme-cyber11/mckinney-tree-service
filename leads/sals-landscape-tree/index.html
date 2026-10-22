@@ -206,7 +206,28 @@ footer a { color: var(--accent); }
 .sb-header { display: grid; grid-template-columns: 1fr auto; gap: .5rem 1rem; padding: .5rem 1rem; background: var(--dark); color: rgba(255,255,255,.72); font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .sb-hint { font-size: .72rem; color: var(--gray); text-align: center; margin-top: .75rem; }
 .sb-badge.sb-saving{opacity:.55}.sb-badge.sb-error{background:#fdecea!important;color:#b42318!important;border-color:#b42318!important}
-.sb-row, .sb-header { grid-template-columns: 1fr auto auto; }
+.sb-row, .sb-header { grid-template-columns: 1fr auto auto auto; }
+/* Call column (2026-10-22): a Listen pill when the lead came from a call we recorded,
+   and how it arrived when it did not. Matches the Keith Zars board. */
+.sb-rec {
+  display: inline-flex; align-items: center; gap: .3rem;
+  padding: .3rem .7rem; border-radius: 999px; white-space: nowrap;
+  font-size: .72rem; font-weight: 700; letter-spacing: .03em;
+  background: var(--dark); color: #fff; text-decoration: none;
+}
+.sb-rec:hover { opacity: .85; }
+.sb-rec-ico { width: 12px; height: 12px; }
+.sb-src { font-size: .7rem; color: var(--gray); white-space: nowrap; }
+@media (max-width: 480px) { .sb-rec { padding: .3rem .55rem; } .sb-src { font-size: .65rem; } }
+/* Four columns do not fit a phone. Below 640px the name takes its own line and the three
+   controls sit under it; the header labels go, since the controls already name themselves. */
+@media (max-width: 640px) {
+  .sb-header { display: none; }
+  .sb-row { grid-template-columns: auto auto 1fr; gap: .5rem; }
+  .sb-row > div:first-child { grid-column: 1 / -1; }
+  .sb-row > .sb-badge { justify-self: end; }
+  .sb-desc { margin-bottom: .15rem; }
+}
 .sb-note-btn {
   padding: .3rem .7rem; border-radius: 999px; font: 700 .72rem/1 inherit; font-family: inherit;
   letter-spacing: .03em; cursor: pointer; white-space: nowrap;
@@ -256,11 +277,11 @@ h1, h2, h3, .lead-title, .summary-stat .val, .cta-card h3 {
 <div class="hero">
   <span class="badge">Prepared for Sal, Sal's Landscape and Tree Service</span>
   <h2>NTX Tree Experts Leads</h2>
-  <p><span id="stat-intro">1</span> inbound homeowner request in the McKinney area, with verified contact info and the full job scope.</p>
+  <p><span id="stat-intro">2</span> inbound homeowner requests in the McKinney area, with verified contact info and the full job scope.</p>
 </div>
 
 <div class="summary-row">
-  <div class="summary-stat"><div class="val" id="stat-total">1</div><div class="lbl">Total leads</div></div>
+  <div class="summary-stat"><div class="val" id="stat-total">2</div><div class="lbl">Total leads</div></div>
   <div class="summary-stat">
       <div class="val">$25</div>
       <div class="lbl">Per lead</div>
@@ -278,11 +299,13 @@ h1, h2, h3, .lead-title, .summary-stat .val, .cta-card h3 {
 
 <div id="tab-leads" class="tab-panel active">
 
-<!-- Lead: McKinney homeowner, Cliffstone Way -->
+<div class="lead-divider">Lead 2 &middot; October 22</div>
+
+<!-- Lead: Rae Kotaru, Cliffstone Way -->
 <div class="card">
   <div class="card-header">
     <div>
-      <div class="lead-title">McKinney homeowner</div>
+      <div class="lead-title">Rae Kotaru</div>
       <div class="lead-sub">McKinney, TX &middot; Dead elm removal, stump grinding, haul away and a replant</div>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.4rem">
@@ -323,20 +346,75 @@ h1, h2, h3, .lead-title, .summary-stat .val, .cta-card h3 {
   </div>
   <div class="field">
     <span class="label">Received</span>
-    <span class="value">October 22, 2026, 8:18 AM CT<span class="quiet">They texted the site line rather than calling, so there is no name on this one yet. Worth asking for it first.</span></span>
+    <span class="value">October 22, 2026, 8:18 AM CT<span class="quiet">They texted the site line rather than calling, so everything above is what came through in the message.</span></span>
   </div>
 
   <div class="note"><span class="note-label">What they wrote</span>Hi, I have a dead 10-inch Lacebark Elm tree in my front yard that needs to be removed. I also need stump grinding, cleanup/haul-away, and a new tree needs to be planted too. Can you please give me separate prices and the total package cost? My address is 3721 Cliffstone Way, McKinney, TX 75070. I can send photos. Thank you</div>
+</div>
+
+<div class="lead-divider">Lead 1 &middot; October 15</div>
+
+<!-- Lead: Tom Pavlatich, Mann Parkway -->
+<div class="card">
+  <div class="card-header">
+    <div>
+      <div class="lead-title">Tom Pavlatich</div>
+      <div class="lead-sub">Celina, TX &middot; Trimming, pruning and a health check on 48 trees</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.4rem">
+      <span class="status scheduled">Asked for a call from a person</span>
+    </div>
+  </div>
+  <div class="field">
+    <span class="label">Phone</span>
+    <span class="value"><a href="tel:+15104396264">(510) 439-6264</a><span class="quiet">They read this number out on the call and confirmed it back. They declined to give an email, so the phone is the only way to reach them.</span></span>
+  </div>
+  <div class="field">
+    <span class="label">Address</span>
+    <span class="value">2014 Mann Parkway, Celina, TX 75009<span class="quiet">They said the city out loud and it came through as "Salina". Mann Parkway runs through the 1800 to 2200 block in Celina, 75009, so that is the match. Worth confirming when you call.</span></span>
+  </div>
+  <div class="field">
+    <span class="label">Service</span>
+    <span class="value">Trimming, pruning and a health assessment across the property.</span>
+  </div>
+  <div class="field">
+    <span class="label">Trees</span>
+    <span class="value">Forty eight.<span class="quiet">The count came from them on the call, so it is not an estimate.</span></span>
+  </div>
+  <div class="field">
+    <span class="label">Scope</span>
+    <span class="value">General work, nothing urgent.<span class="quiet">Asked directly, they confirmed none of them are touching power lines, storm damaged or leaning toward the house.</span></span>
+  </div>
+  <div class="field">
+    <span class="label">Timeline</span>
+    <span class="value">Scheduled work. They gave no deadline and asked for a quote.</span>
+  </div>
+  <div class="field">
+    <span class="label">Source</span>
+    <span class="value">ntxtreeexperts.com, inbound call</span>
+  </div>
+  <div class="field">
+    <span class="label">Received</span>
+    <span class="value">October 15, 2026, 10:40 AM CT<span class="quiet">The call ran 3 minutes 22 seconds. You can hear the whole thing from the Call column on the Status Board.</span></span>
+  </div>
+
+  <div class="note"><span class="note-label">How the call went</span>The call opened with questions about trimming, pruning and tree health, then the count: forty eight trees. They asked whether they were speaking to a person, and on hearing it was a booking assistant, said they would prefer a call from a real person. They gave a name, a number and the address, declined email twice and said to call. Good humoured throughout.</div>
 </div>
 
 </div><!-- /#tab-leads -->
 
 <div id="tab-status" class="tab-panel">
   <div class="sb-wrap">
-    <div class="sb-header"><span>Lead</span><span>Notes</span><span>Status</span></div>
+    <div class="sb-header"><span>Lead</span><span>Call</span><span>Notes</span><span>Status</span></div>
     <div class="sb-row">
-      <div><div class="sb-name">McKinney homeowner</div><div class="sb-desc">3721 Cliffstone Way, McKinney &middot; Dead elm removal and replant</div></div>
+      <div><div class="sb-name">Rae Kotaru</div><div class="sb-desc">3721 Cliffstone Way, McKinney &middot; Dead elm removal and replant</div></div>
+      <span class="sb-src">Text message</span>
       <button class="sb-badge" data-id="mckinney-cliffstone" data-status="Active" onclick="cycleStatus(this)">Active</button>
+    </div>
+    <div class="sb-row">
+      <div><div class="sb-name">Tom Pavlatich</div><div class="sb-desc">2014 Mann Parkway, Celina &middot; Trimming and health work, 48 trees</div></div>
+      <a class="sb-rec" href="https://lead-manager-api.irontigerdigital.workers.dev/rec/call_5132f5a30f64712ad4b82285d4f.mp3" target="_blank" rel="noopener" aria-label="Listen to the call with this homeowner"><svg class="sb-rec-ico" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z" clip-rule="evenodd"/></svg>Listen 3:22</a>
+      <button class="sb-badge" data-id="celina-mann-parkway" data-status="Active" onclick="cycleStatus(this)">Active</button>
     </div>
   </div>
   <p class="sb-hint">Tap a status to cycle: Active, Contacted, Quote Sent, Closed / Lost. Tap Notes to keep your own notes on a lead. Both save for everyone with this link, on any device.</p>
@@ -353,7 +431,7 @@ h1, h2, h3, .lead-title, .summary-stat .val, .cta-card h3 {
 </div>
 
 <footer>
-  Iron Tiger Digital &nbsp;&middot;&nbsp; <strong><a href="mailto:contact@irontigerdigital.com">contact@irontigerdigital.com</a></strong> &nbsp;&middot;&nbsp; (512) 956-7133 &nbsp;&middot;&nbsp; Lead ID: LAWTON-2026-10-06
+  Iron Tiger Digital &nbsp;&middot;&nbsp; <strong><a href="mailto:contact@irontigerdigital.com">contact@irontigerdigital.com</a></strong> &nbsp;&middot;&nbsp; (512) 956-7133 &nbsp;&middot;&nbsp; Lead ID: MCKINNEY-2026-10-22
 </footer>
 
 </div>
