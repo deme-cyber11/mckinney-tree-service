@@ -97,7 +97,10 @@ header h1 { margin: 0; font-size: 1.15rem; font-weight: 700; letter-spacing: -.0
   background: #fff; border: 1px solid var(--border); border-radius: 12px;
   padding: 1.25rem 1.4rem; margin-bottom: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,.04);
 }
-.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .85rem; gap: 1rem; }
+.card-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; margin-bottom: .85rem; gap: 1rem; }
+/* A long status badge used to push past the right edge on a phone: .status is
+   nowrap, so it could not shrink and the header could not wrap (2026-10-22). */
+@media (max-width: 520px) { .status { white-space: normal; text-align: right; } }
 .card h3 { margin: 0 0 .85rem; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gray); font-weight: 700; }
 .card-header h3 { margin: 0; }
 .lead-title { font-size: 1.15rem; font-weight: 800; color: var(--dark); letter-spacing: -.01em; margin: 0 0 .2rem; }
@@ -310,7 +313,7 @@ h1, h2, h3, .lead-title, .summary-stat .val, .cta-card h3 {
       <div class="lead-sub">McKinney, TX &middot; Dead elm removal, stump grinding, haul away and a replant</div>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.4rem">
-      <span class="status urgent">Wants separate and package pricing</span>
+      <span class="status urgent">Wants itemized pricing</span>
     </div>
   </div>
   <div class="field">
@@ -363,7 +366,7 @@ h1, h2, h3, .lead-title, .summary-stat .val, .cta-card h3 {
       <div class="lead-sub">Celina, TX &middot; Trimming, pruning and a health check on 48 trees</div>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.4rem">
-      <span class="status scheduled">Asked for a call from a person</span>
+      <span class="status scheduled">Wants a callback</span>
     </div>
   </div>
   <div class="field">
